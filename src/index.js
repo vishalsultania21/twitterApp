@@ -1,6 +1,7 @@
 import express from "express";
 import { PORT } from "./config/serverconfig.js";
 import apiRouter from "./routes/apirouter.js";
+import connectDB from "./config/dbConfig.js";
 
 const app = express();
 app.use(express.json());
@@ -25,6 +26,7 @@ app.use((req, res) => {
 
 app.listen(PORT, () => {
   console.log("listening");
+  connectDB();
 });
 
 
